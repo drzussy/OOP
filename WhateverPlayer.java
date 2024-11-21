@@ -1,14 +1,29 @@
 import java.util.Random;
 
 /**
- * A Player whos strategy is to place marks randomly on a Board
+ * A `Player` whose strategy is to place marks randomly on the game board.
+ * This class implements the `Player` interface
  */
 public class WhateverPlayer implements Player {
     //todo implement
 
     // implement random field
     private static final Random random = new Random();
+    /**
+     * Constructs a new `WhateverPlayer`.
+     * This constructor initializes a `WhateverPlayer` instance that can make random moves on the board.
+     */
     WhateverPlayer(){};
+
+    /**
+     * Makes a random move on the given board by selecting random coordinates and placing the player's mark.
+     * The method continues to select random coordinates until a valid move is found (i.e., the spot is
+     * empty).
+     *
+     * @param board The game board on which the player's move will be made.
+     * @param mark The mark (X or O) representing the current player.
+     */
+    @Override
     public void playTurn(Board board, Mark mark){
         // get two random ints for col within board limit
         int size = board.getSize();

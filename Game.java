@@ -1,5 +1,7 @@
 /**
- * A single Game with a winStreak k.
+ * Represents a single game of tic-tac-toe (or a variant), where players alternate turns.
+ * The game is played on a square board, and the first player to align a specified number
+ * of consecutive marks (winStreak) in any direction (horizontally, vertically, or diagonally) wins.
  */
 public class Game {
     private Player playerX, playerO;
@@ -7,7 +9,13 @@ public class Game {
     private int boardSize, winStreak;
     private static final int defaultSize = 4, defaultWinStreak = 3;
 
-
+    /**
+     * Constructs a new Game with default settings.
+     *
+     * @param playerX The player who will play as 'X'.
+     * @param playerO The player who will play as 'O'.
+     * @param renderer The renderer responsible for displaying the game board.
+     */
     Game(Player playerX, Player playerO, Renderer renderer){
         this.playerX = playerX;
         this.playerO = playerO;
@@ -16,6 +24,16 @@ public class Game {
         winStreak = defaultWinStreak;
 
     }
+
+    /**
+     * Constructs a new Game with specified settings.
+     *
+     * @param playerX The player who will play as 'X'.
+     * @param playerO The player who will play as 'O'.
+     * @param size The size of the game board (number of rows and columns).
+     * @param winstreak The number of consecutive marks required to win.
+     * @param renderer The renderer responsible for displaying the game board.
+     */
     Game(Player playerX, Player playerO, int size, int winstreak, Renderer renderer){
         this.playerX = playerX;
         this.playerO = playerO;
@@ -23,6 +41,12 @@ public class Game {
         this.boardSize = size;
         this.winStreak = winstreak;
     }
+
+    /**
+     * Gets the size of the game board (number of rows/columns).
+     *
+     * @return The size of the game board.
+     */
     public int getWinStreak(){
         return winStreak;
     }
@@ -31,8 +55,10 @@ public class Game {
     }
 
     /**
-     * run a single game, from begining to end.
-     * @return Mark of winning player
+     * Runs a single game, alternating turns between the two players until one player wins
+     * or the board is full.
+     *
+     * @return The mark (X or O) of the winning player, or Mark.BLANK if no winner (i.e., draw).
      */
     public Mark run(){
         Board board = new Board(boardSize);
@@ -49,6 +75,7 @@ public class Game {
         }
         return winningMark;
     }
+
     private boolean checkWin(Mark[][] board, int k){
             int rows = boardSize, cols = boardSize;
 

@@ -60,7 +60,7 @@ public class Board {
      */
     public boolean putMark(Mark mark, int row, int col){
         //check valid coordinates
-        if(!(0<=row && row <=size) || !(0<=col && col <=size)){
+        if(!(0<=row && row <size) || !(0<=col && col <size)){
 
             return false;
         }
