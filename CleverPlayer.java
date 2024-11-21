@@ -18,6 +18,6 @@ public class CleverPlayer implements Player{
     public void playTurn(Board board, Mark mark) {
         //get random value, based on
         int randomValue = random.nextInt();
-        players[randomValue%2].playTurn(board, mark);
+        players[Math.abs(randomValue%2)].playTurn(board, mark);
     }
 }

@@ -2,9 +2,7 @@
  * A factory that creates Player objects based on
  */
 public class PlayerFactory {
-    PlayerFactory(){
-
-    }
+    PlayerFactory(){}
 
     /**
      *
@@ -14,19 +12,12 @@ public class PlayerFactory {
     public Player buildPlayer(String type){
         //todo fill out params
         Player player;
-        switch(type){
-            case "whatever":
-                player = new WhateverPlayer();
-            case "clever":
-                player = new CleverPlayer();
-            case "genius":
-                player = new GeniusPlayer();
-            default:
-                player = new HumanPlayer();
-
-
-        }
-        return player;
+        return switch (type) {
+            case "whatever" -> new WhateverPlayer();
+            case "clever" -> new CleverPlayer();
+            case "genius" -> new GeniusPlayer();
+            default -> new HumanPlayer();
+        };
 
     }
 }
