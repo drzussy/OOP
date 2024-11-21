@@ -1,17 +1,17 @@
 public enum Mark {
-        BLANK,
-        X,
-        O;
+        BLANK, X, O;
 
-    String toString(Mark mark){
-        /*
-        This function receives an enum object of type Mark and returns it as a string.
-        If mark is BLANK, null is returned.
-         */
-        return switch (mark) {
-            case X -> "X";
-            case O -> "O";
-            default -> null;
-        };
-    }
+
+        @Override
+        public String toString(){
+            /*
+            This function receives an enum object of type Mark and returns it as a string.
+            If mark is BLANK, null is returned.
+             */
+            return switch (this) {
+                case X -> "X";
+                case O -> "O";
+                default -> null;
+            };
+        }
 }

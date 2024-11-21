@@ -4,4 +4,7 @@
  * Use this Renderer subclass to run program between two computer players quickly.
  */
 public class VoidRenderer implements Renderer {
+    VoidRenderer(){};
+    public void renderBoard(Board board){}
+
 }

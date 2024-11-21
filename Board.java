@@ -7,11 +7,13 @@
  * @method getSize - returns size of board
  * @method PutMark - will attempt to place mark on board
  * @method getMark - will return the mark of a specified place on the board
+ *
+ * @author
  */
 public class Board {
-    public int size;
+    private int size;
     public Mark[][] board;
-    int defaultSize = 3;
+    private static final int defaultSize = 3;
     public Board() {
         /**
          * define new empty board in of default size <i>3 * 3</i> (n=3)
@@ -19,9 +21,6 @@ public class Board {
         this.size = defaultSize;
 //        todo define actual board
         board = makeBoard();
-
-
-
     }
 
     /**
@@ -36,14 +35,18 @@ public class Board {
 
     private Mark[][] makeBoard(){
         Mark[][] board = new Mark[size][size];
-        for(Mark[] row: board) {
-            for (Mark mark : row) {
-                mark = Mark.BLANK;
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                board[i][j] = Mark.BLANK;
             }
         }
         return board;
     }
-    int getSize(){
+
+    /**
+     * @return size of this instance of board
+     */
+    public int getSize(){
         return size;
     }
 
@@ -53,11 +56,24 @@ public class Board {
      * @param mark
      * @param row
      * @param col
-     * @return true if succeeded else false;
+     * @return true if succeeded to place mark, else false;
      */
-    boolean putMark(Mark mark, int row, int col){
-        return false; //todo this method
+    public boolean putMark(Mark mark, int row, int col){
+        //check valid coordinates
+        if(!(0<=row && row <=size) || !(0<=col && col <=size)){
+
+            return false;
+        }
+        // check that selected space is BLANK
+        else if(getMark(row, col) != Mark.BLANK){
+            return false;
+        }
+        else{
+            board[row][col] = mark;
+            return true;
+        }
     }
+
 
     /**
      * returns Mark of place <i>[row][col]</i> of board.
@@ -65,7 +81,7 @@ public class Board {
      * @param col
      * @return
      */
-    Mark getMark(int row, int col){
-        return Mark.BLANK; // todo this method
+    public Mark getMark(int row, int col){
+        return board[row][col];
     }
 }

@@ -3,5 +3,5 @@
  *
  */
 public interface Player {
-    public playTurn(Board board, Mark mark);
+    public void playTurn(Board board, Mark mark);
 }
