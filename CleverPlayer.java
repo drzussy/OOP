@@ -6,7 +6,7 @@ import java.util.Random;
 public class CleverPlayer implements Player{
 //    todo implement
     Random random = new Random();
-    Player[] players = new Player[]{new WhateverPlayer(), new GenuisPlayer()};
+    Player[] players = new Player[]{new WhateverPlayer(), new GeniusPlayer()};
     CleverPlayer(){};
 
     /**

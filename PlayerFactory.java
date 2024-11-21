@@ -20,7 +20,7 @@ public class PlayerFactory {
             case "clever":
                 player = new CleverPlayer();
             case "genius":
-                player = new GenuisPlayer();
+                player = new GeniusPlayer();
             default:
                 player = new HumanPlayer();
 
