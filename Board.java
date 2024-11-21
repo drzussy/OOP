@@ -12,6 +12,7 @@
  */
 public class Board {
     private int size;
+
     public Mark[][] board;
     private static final int defaultSize = 3;
     public Board() {

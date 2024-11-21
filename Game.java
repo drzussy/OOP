@@ -50,7 +50,7 @@ public class Game {
     public int getWinStreak(){
         return winStreak;
     }
-    public int getBoardsize(){
+    public int getBoardSize(){
         return boardSize;
     }
 
@@ -118,7 +118,8 @@ public class Game {
         }
         return true;
     }
-    private static boolean checkDirection(Mark[][] matrix, int startRow, int startCol, int k, int rowDir, int colDir) {
+    private static boolean checkDirection(Mark[][] matrix, int startRow, int startCol, int k, int rowDir,
+                                          int colDir) {
         int rows = matrix.length;
         int cols = matrix[0].length;
         Mark target = matrix[startRow][startCol];
@@ -128,7 +129,8 @@ public class Game {
             int newCol = startCol + step * colDir;
 
             // Check if we are out of bounds or if the mark doesn't match
-            if (newRow < 0 || newRow >= rows || newCol < 0 || newCol >= cols || matrix[newRow][newCol] != target) {
+            if (newRow < 0 || newRow >= rows || newCol < 0 || newCol >= cols || matrix[newRow][newCol]
+                    != target) {
                 return false;
             }
         }

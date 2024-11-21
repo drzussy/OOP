@@ -5,6 +5,11 @@
  */
 public class VoidRenderer implements Renderer {
     VoidRenderer(){};
+
+    /**
+     * does literally nothing
+     * @param board
+     */
     public void renderBoard(Board board){}
 
 }

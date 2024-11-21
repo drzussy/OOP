@@ -1,25 +1,8 @@
 noam.susman
 318528304
 
-Tic-Tac-Toe Game
-This project implements a customizable version of Tic-Tac-Toe, featuring different types of players,  a
-flexible game board, and various strategies. The game allows for human players and computer controlled
-players to play against each other on a dynamic-sized board with a configurable win streak.
-
-Features
+Question 1)
 Human Player: A player that makes moves based on user input.
-computer Players: Includes a random player (WhateverPlayer), as well as other potential strategies like
-Clever and Genius players.
-Customizable Game Settings: The game board's size and the required win streak can be adjusted.
-Game Renderer: The game features different renderers for displaying the board, including a console-based
-renderer.
-Factory Pattern: A factory class is used to instantiate different types of players based on the user's or
-system's configuration.
-Structure
-Main Classes
-Tournamant: Manages and executes a tournament of Tic Tac Toe games between two players. A tournament consists
- of multiple rounds where players alternate between going first and second. The tournament tracks scores and
- displays results after all rounds are completed.
 
 Player: Interface for creating different types of players (HumanPlayer, WhateverPlayer, etc.). The interface
 defines the playTurn(Board board, Mark mark) method, which is implemented by different player strategies.
@@ -29,64 +12,19 @@ coordinates and places their mark on the board.
 
 WhateverPlayer: A simple computer player that selects random positions on the board to place its mark.
 
-CleverPlayer A strategic player implementation that combines random and intelligent gameplay approaches to
-achieve a moderate win rate. This player alternates between two different playing styles: a basic approach
-(WhateverPlayer) and an intelligent approach (GeniusPlayer).
+CleverPlayer A strategic player implementation that combines random and strategic gameplay approaches to
+achieve a moderate win rate. This player alternates between two different instances of Player: WhateverPlayer
+who implements a basic and random approach, and GeniusPlayer that implements a strategy.
 
 GeniusPlayer A strategic Tic Tac Toe player that makes intelligent moves based on the current board state.
 The player follows a priority-based strategy:
 
-Win the game if possible by completing a streak
-Block opponent from winning
-Make strategic moves (center, corners)
-Make random moves as a last resort
-Board: A class that represents the Tic-Tac-Toe game board. The board stores the current state of the game and
- provides methods for placing marks and checking win conditions.
+1) Win the game if possible by completing a streak
+2) Block opponent from winning
+3) Make strategic moves (center, corners)
+4) Make random moves as a last resort
 
-Renderer: Interface for rendering the game board. Concrete implementations like ConsoleRenderer and
-VoidRenderer allow for different ways of displaying the game.
+Question 2)
+Interfaces allow for polymorphism and flexibility. notice how tournament and game worked with all types of
+players since all the players commit to the Player interface.
 
-Game: A class that manages the game logic, including alternating turns between two players, checking for
-wins, and determining the game's outcome.
-
-PlayerFactory: A factory class used to create instances of players based on a specified type (e.g.,
-HumanPlayer, WhateverPlayer).
-
-Mark: Enum representing the two possible marks in the game: X and O, and a blank mark to represent empty
-spots on the board.
-
-How to Play
-Choose Players: Players can either be human or computer controlled. The computer can have
-different strategies, such as random moves (WhateverPlayer) or more advanced strategies like Clever and
-Genius players.
-
-Game Board: The game starts with a default 4x4 board, but the board size can be customized. The game
-continues until a player achieves a winning streak (default is 3) consecutive marks in a row, column, or
-diagonal.
-
-Taking Turns: Players alternate turns, and the game will render the board after every move. Human players
-provide coordinates to place their marks, while computer players randomly choose their moves (or use a
-predefined strategy).
-
-    Win Condition: The first player to place a set number of consecutive marks (default 3, but customizable)
-    wins the game.
-
-    Running the Game
-    Once you have the code setup, you can start a new game by running main in Tournamant with the proper
-    command line arguemants: java Tournament [round count] [size] [win_streak] [render target: console/void]
-    [first player: human/whatever/clever/genius] [second player: human/whatever/clever/genius]
-
-    Game Configuration
-    Board Size: The default size is 4x4, but you can change it by passing a different size when creating the
-    Game object.
-
-    Win Streak: The default required streak for winning is 3, but this can be adjusted as needed when
-    creating the game.
-
-    Player Types: Players can be of type HumanPlayer, WhateverPlayer, CleverPlayer, or GeniusPlayer (computer
-     players with different strategies).
-
-    Notes:
-    Mark Enum: This class is assumed to define the possible values for marks on the board (X, O, and BLANK).
-    Renderer Interface: ConsoleRenderer is a simple implementation that renders the game board to the console,
-      and VoidRenderer can be used for testing or non-visual purposes.

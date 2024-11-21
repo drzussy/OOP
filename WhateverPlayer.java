@@ -5,7 +5,6 @@ import java.util.Random;
  * This class implements the `Player` interface
  */
 public class WhateverPlayer implements Player {
-    //todo implement
 
     // implement random field
     private static final Random random = new Random();
@@ -13,7 +12,7 @@ public class WhateverPlayer implements Player {
      * Constructs a new `WhateverPlayer`.
      * This constructor initializes a `WhateverPlayer` instance that can make random moves on the board.
      */
-    WhateverPlayer(){};
+    WhateverPlayer(){}
 
     /**
      * Makes a random move on the given board by selecting random coordinates and placing the player's mark.
@@ -25,7 +24,7 @@ public class WhateverPlayer implements Player {
      */
     @Override
     public void playTurn(Board board, Mark mark){
-        // get two random ints for col within board limit
+        // get two random integers for col within board limit
         int size = board.getSize();
         int[] input = getCoordinates(size);
         while(!board.putMark(mark, input[0], input[1])){

@@ -10,9 +10,9 @@ import java.util.Random;
  * as a basic player or an intelligent player based on preset probabilities.</p>
         */
 public class CleverPlayer implements Player{
-    Random random = new Random();
-    Player[] players = new Player[]{new WhateverPlayer(), new GeniusPlayer()};
-    CleverPlayer(){};
+    private final Random random = new Random();
+    private final Player[] players = new Player[]{new WhateverPlayer(), new GeniusPlayer()};
+    CleverPlayer(){}
 
     /**
      * Executes a move on the given board using a probability-based strategy selection.
