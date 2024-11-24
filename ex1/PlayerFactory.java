@@ -24,11 +24,12 @@ public class PlayerFactory {
     public Player buildPlayer(String type){
         //todo fill out params
         Player player;
-        return switch (type) {
+        return switch (type.toLowerCase()) {
             case "whatever" -> new WhateverPlayer();
             case "clever" -> new CleverPlayer();
             case "genius" -> new GeniusPlayer();
-            default -> new HumanPlayer();
+            case "human" -> new HumanPlayer();
+            default -> null;
         };
 
     }

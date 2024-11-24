@@ -28,10 +28,12 @@ public class RendererFactory {
      */
     public Renderer buildRenderer(String type, int size) {
         Renderer renderer;
-        if (type.equals("void")) {
+        if (type.toLowerCase().equals("void")) {
             return new VoidRenderer();
-        } else {
+        } else if(type.toLowerCase().equals("console")) {
             return new ConsoleRenderer(size);
+        }else{
+            return null;
         }
     }
 }

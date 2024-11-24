@@ -3,7 +3,7 @@
  * players will access the board, check its state and based on the players strategy, will attempt to place a
  * mark of type Mark.
  * @field size - size of board defined by the user.
- * @field board - a two dimensional array of Mark enums.
+ * @field board - a two-dimensional array of Mark enums.
  * @method getSize - returns size of board
  * @method PutMark - will attempt to place mark on board
  * @method getMark - will return the mark of a specified place on the board
@@ -14,7 +14,7 @@ public class Board {
     private int size;
 
     public Mark[][] board;
-    private static final int defaultSize = 3;
+    private static final int defaultSize = 4;
     public Board() {
         /**
          * define new empty board in of default size <i>3 * 3</i> (n=3)
@@ -83,6 +83,9 @@ public class Board {
      * @return
      */
     public Mark getMark(int row, int col){
+        if(!(0<=row && row <size) || !(0<=col && col <size)){
+            return Mark.BLANK;
+        }
         return board[row][col];
     }
 }
