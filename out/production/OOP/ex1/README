@@ -1,0 +1,30 @@
+noam.susman
+318528304
+
+Question 1)
+Human Player: A player that makes moves based on user input.
+
+Player: Interface for creating different types of players (HumanPlayer, WhateverPlayer, etc.). The interface
+defines the playTurn(Board board, Mark mark) method, which is implemented by different player strategies.
+
+HumanPlayer: A player that interacts with the user via the console to make moves. It asks the user for
+coordinates and places their mark on the board.
+
+WhateverPlayer: A simple computer player that selects random positions on the board to place its mark.
+
+CleverPlayer A strategic player implementation that combines random and strategic gameplay approaches to
+achieve a moderate win rate. This player alternates between two different instances of Player: WhateverPlayer
+who implements a basic and random approach, and GeniusPlayer that implements a strategy.
+
+GeniusPlayer A strategic Tic Tac Toe player that makes intelligent moves based on the current board state.
+The player follows a priority-based strategy:
+
+1) Win the game if possible by completing a streak
+2) Block opponent from winning
+3) Make strategic moves (center, corners)
+4) Make random moves as a last resort
+
+Question 2)
+Interfaces allow for polymorphism and flexibility. notice how tournament and game worked with all types of
+players since all the players commit to the Player interface.
+
